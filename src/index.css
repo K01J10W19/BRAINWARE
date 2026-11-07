@@ -1,0 +1,227 @@
+/* 1. Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap");
+
+/* 2. Tailwind v4 Core Import */
+@import "tailwindcss";
+
+/* 3. Original Root CSS Variables */
+:root {
+  --font-sora: "Sora", sans-serif;
+  --font-code: "Source Code Pro", monospace;
+  --font-grotesk: "Space Grotesk", sans-serif;
+}
+
+/* Note: Fixed a typo from your original code ('-' changed to 'html') */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 4. Base Layer Customization */
+@layer base {
+  body {
+    @apply font-sans bg-n-8 text-n-1 text-base;
+  }
+}
+
+/* 5. V4 Theme Configuration (From previous step) */
+@theme {
+  --color-color-1: #AC6AFF;
+  --color-color-2: #FFC876;
+  --color-color-3: #FF776F;
+  --color-color-4: #7ADB78;
+  --color-color-5: #858DFF;
+  --color-color-6: #FF98E2;
+  --color-stroke-1: #26242C;
+  --color-n-1: #FFFFFF;
+  --color-n-2: #CAC6DD;
+  --color-n-3: #ADA8C3;
+  --color-n-4: #757185;
+  --color-n-5: #3F3A52;
+  --color-n-6: #252134;
+  --color-n-7: #15131D;
+  --color-n-8: #0E0C15;
+  --color-n-9: #474060;
+  --color-n-10: #43435C;
+  --color-n-11: #1B1B2E;
+  --color-n-12: #2E2A41;
+  --color-n-13: #6C7275;
+
+  --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-code: var(--font-code);
+  --font-grotesk: var(--font-grotesk);
+
+  --tracking-tagline: 0.15em;
+  --opacity-15: 0.15;
+  --default-transition-duration: 200ms;
+  --default-transition-timing-function: linear;
+
+  --z-index-1: 1;
+  --z-index-2: 2;
+  --z-index-3: 3;
+  --z-index-4: 4;
+  --z-index-5: 5;
+
+  --background-image-radial-gradient: radial-gradient(var(--tw-gradient-stops));
+  --background-image-conic-gradient: conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876);
+}
+
+/* 6. Custom Components (From previous step) */
+@layer components {
+  .container {
+    @apply max-w-[77.5rem] mx-auto px-5 md:px-10 lg:px-15 xl:max-w-[87.5rem];
+  }
+  .h1 {
+    @apply font-semibold text-[2.5rem] leading-[3.25rem] md:text-[2.75rem] md:leading-[3.75rem] lg:text-[3.25rem] lg:leading-[4.0625rem] xl:text-[3.75rem] xl:leading-[4.5rem];
+  }
+  .h2 {
+    @apply text-[1.75rem] leading-[2.5rem] md:text-[2rem] md:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3.5rem] xl:text-[3rem] xl:leading-tight;
+  }
+  .h3 {
+    @apply text-[2rem] leading-normal md:text-[2.5rem];
+  }
+  .h4 {
+    @apply text-[2rem] leading-normal;
+  }
+  .h5 {
+    @apply text-2xl leading-normal;
+  }
+  .h6 {
+    @apply font-semibold text-lg leading-8;
+  }
+  .body-1 {
+    @apply text-[0.875rem] leading-[1.5rem] md:text-[1rem] md:leading-[1.75rem] lg:text-[1.25rem] lg:leading-8;
+  }
+  .body-2 {
+    @apply font-light text-[0.875rem] leading-6 md:text-base;
+  }
+  .caption {
+    @apply text-sm;
+  }
+  .tagline {
+    @apply font-grotesk font-light text-xs tracking-tagline uppercase;
+  }
+  .quote {
+    @apply font-code text-lg leading-normal;
+  }
+  .button {
+    @apply font-code text-xs font-bold uppercase tracking-wider;
+  }
+}
+
+/* 7. Utility Layer (Combining the tap-highlight fix and your custom rotations) */
+@layer utilities {
+  .tap-highlight-color {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .rotate-45 { @apply rotate-[45deg]; }
+  .rotate-90 { @apply rotate-[90deg]; }
+  .rotate-135 { @apply rotate-[135deg]; }
+  .rotate-180 { @apply rotate-[180deg]; }
+  .rotate-225 { @apply rotate-[225deg]; }
+  .rotate-270 { @apply rotate-[270deg]; }
+  .rotate-315 { @apply rotate-[315deg]; }
+  .rotate-360 { @apply rotate-[360deg]; }
+
+  .-rotate-45 { @apply rotate-[-45deg]; }
+  .-rotate-90 { @apply rotate-[-90deg]; }
+  .-rotate-135 { @apply rotate-[-135deg]; }
+  .-rotate-180 { @apply rotate-[-180deg]; }
+  .-rotate-225 { @apply rotate-[-225deg]; }
+  .-rotate-270 { @apply rotate-[-270deg]; }
+  .-rotate-315 { @apply rotate-[-315deg]; }
+  .-rotate-360 { @apply rotate-[-360deg]; }
+}
+
+/* 8. Scroll reveal / entrance animations (used by <Reveal />) */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-up { transform: translate3d(0, 2.5rem, 0); }
+.reveal-down { transform: translate3d(0, -2.5rem, 0); }
+.reveal-left { transform: translate3d(-3rem, 0, 0); }
+.reveal-right { transform: translate3d(3rem, 0, 0); }
+.reveal-zoom { transform: scale(0.92); filter: blur(6px); }
+.reveal-fade { transform: none; }
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+@keyframes header-in {
+  from { opacity: 0; transform: translateY(-100%); }
+  to { opacity: 1; transform: none; }
+}
+
+.animate-header-in {
+  animation: header-in 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-progress-bar {
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #FFC876, #79FFF7, #9F53FF, #FF98E2);
+  box-shadow: 0 0 0.75rem rgba(159, 83, 255, 0.6);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .animate-header-in { animation: none; }
+}
+
+/* 9. Themed scrollbar */
+::-webkit-scrollbar {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-n-8);
+  border-left: 1px solid var(--color-n-6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #79FFF7, #9F53FF 50%, #FF98E2) padding-box;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFC876, #AC6AFF 50%, #FF98E2) padding-box;
+  border-width: 1px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-n-8);
+}
+
+::selection {
+  background: rgba(172, 106, 255, 0.45);
+  color: var(--color-n-1);
+}
+
+/* Firefox (and browsers without ::-webkit-scrollbar). Chrome ignores the
+   pseudo-elements above if scrollbar-color is set, so keep it scoped here. */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #9F53FF var(--color-n-8);
+  }
+}
